@@ -12,9 +12,20 @@ function RandomNames(arr1, arr2){
             res.push(`${arr1[i]} ${arr2[j]}`);
         }
     }
-
     return res;
 }
 
 const allNames = RandomNames(words1, words2);
 console.log(allNames);
+
+
+    let item = document.createElement('div');
+    item.classList.add('NamesStyled')
+    
+    setInterval(() => {
+        item.textContent = allNames[Math.floor(Math.random() * allNames.length)]
+        document.body.append(item);
+    }, 2000)
+
+
+
