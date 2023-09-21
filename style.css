@@ -16,4 +16,14 @@
     font-weight: 600;
 }
 
+.timer-progressbar{
+    display: flex;
+}
 
+.timer-progressbar__fill{
+    background-color: #306896;
+}
+
+.timer-progressbar__empty{
+    background-color: #b43c3c;
+}
