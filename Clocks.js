@@ -1,4 +1,5 @@
 
+const clock = document.querySelector('.clock');
 
 
 function updateTime(){
@@ -18,4 +19,8 @@ function updateTime(){
     if(seconds < 10) {
         seconds = '0' + seconds;
     }
+
+    clock.textContent = `${hours} : ${minuties} : ${seconds}`;
 }
+
+setInterval(updateTime, 1000);
