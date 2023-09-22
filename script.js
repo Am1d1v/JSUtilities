@@ -1,28 +1,31 @@
 
 
-let textEl = document.getElementById("text");
-let speedEl = document.getElementById("speed");
-let text = "Hello! Have a nice day";
-let idx = 1;
-let speed = 300 / speedEl.value;
 
-writeText();
+let insert = document.getElementById("insert");
 
-function writeText(){
 
-    textEl.innerHTML = text.slice(0, idx);
+window.addEventListener("keydown",(e)=>{
+   // console.log(event);
+   // console.log(event.key);
+   // console.log(event.keyCode);
+   //  console.log(event.code);
 
-    idx++;
+    insert.innerHTML = `
+    <div class="key">
+        ${e.key === " " ? "Space" : e.key}
+         <small>event.key</small>
+    </div>
+    
 
-    if(idx > text.length){
-        idx = 1;
-    }
+    <div class="key">
+        ${e.keyCode}
+        <small>event.keyCode</small>
+    </div>
 
-    setTimeout(writeText, speed);
-}
-
-speedEl.addEventListener("input", (e)=>{
-    speed = 300 / e.target.value
+    <div class="key">
+    ${e.code}
+        <small>event.code</small>
+    </div>
+    `
 });
 
-console.dir(Event);
