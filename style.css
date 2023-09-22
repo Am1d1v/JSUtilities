@@ -1,29 +1,31 @@
-
-
-
-
-.NamesStyled{
-    padding: 10px;
-    font-size: 15px;
-    background-color: #5977b8;
-    border-radius: 5px;
-    margin: 10px;
-    max-width: 100px;
+* {
+  box-sizing: border-box;
 }
 
-.clock{
-    font-size: 30px;
-    font-weight: 600;
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #422b52;
 }
 
-.timer-progressbar{
-    display: flex;
+div {
+  position: absolute;
+  bottom: 30px;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  font-size: 1.5rem;
 }
 
-.timer-progressbar__fill{
-    background-color: #306896;
-}
-
-.timer-progressbar__empty{
-    background-color: #b43c3c;
-}
+input {
+  width: 50px;
+  padding: 5px;
+  font-size: 1rem;
+  background-color: #fff;
+  border: none;
+}/*# sourceMappingURL=style.css.map */
