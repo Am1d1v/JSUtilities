@@ -1,34 +1,32 @@
 
 
-let container = document.getElementById("container");
-let colors = ["#341ba3", "#251e44", "#765bee", "#ae00ff", "#541c6e", "#2b043d"];
-let SQUARES = 600;
-
-for(let i = 0; i < SQUARES; i++){
-    let square = document.createElement("div");
-    square.classList.add("square");
 
 
-    square.addEventListener("mouseover", ()=> setColor(square));
+let boxes = document.querySelectorAll(".box");
 
-    square.addEventListener("mouseout", ()=> removeColor(square));
+window.addEventListener("scroll", checkBoxes)
 
-    container.append(square);
+checkBoxes();
+
+
+
+
+function checkBoxes(){
+    //console.log(window.innerHeight * 0.8);
+    let triggerBottom = window.innerHeight * 0.8;
+
+    boxes.forEach(box =>{
+        let boxTop = box.getBoundingClientRect().top;
+
+     console.log(box.getBoundingClientRect().top);
+
+        if(boxTop < triggerBottom){
+            box.classList.add("box_show")
+        } else {
+            box.classList.remove("box_show")
+        }
+    })
 }
 
-function setColor(element){
-    let color = getRandomColor()
-    console.log(color);
-    element.style.background = color;
-    element.style.boxShadow = `0 0 200px ${color}, 0 0 100px ${color}`
-}
+//console.log(box.getBoundingClientRect());
 
-function removeColor(element){
-    element.style.background = "#313131";
-    element.style.boxShadow = "0 0 2px black";
-
-}
-
-function getRandomColor(){
-    return colors[Math.floor(Math.random() * colors.length)];
-}

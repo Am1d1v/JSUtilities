@@ -6,29 +6,28 @@ body {
   font-family: "Roboto", sans-serif;
   margin: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  overflow: hidden;
-  background: #111;
+  background-color: #8c9297;
 }
 
-.container {
+.box {
+  width: 300px;
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  max-width: 400px;
+  background-color: #212c68;
+  margin-top: 30px;
+  border-radius: 10px;
+  transform: translateX(500%);
+  transition: transform 0.5s;
+}
+.box h2 {
+  font-size: 40px;
 }
 
-.square {
-  background-color: #313131;
-  box-shadow: 0 0 2px black;
-  height: 1rem;
-  width: 1rem;
-  margin: 2px;
-  transition: 2s ease;
-}
-.square:hover {
-  transition-duration: 0s;
+.box_show {
+  transform: translateX(0);
 }/*# sourceMappingURL=style.css.map */
