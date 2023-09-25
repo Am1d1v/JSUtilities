@@ -9,61 +9,51 @@ body
     font-family: 'Roboto', sans-serif
     margin: 0
     display: flex
+    flex-direction: column
     align-items: center
     justify-content: center
     height: 100vh
     overflow: hidden
-    color: gray
-    background-color: #64477c        
+    background-color: #2d2c50 
 
 
-.panelImg1
-    background-image: url('img/SpaceImg1.jpg')
-
-.panelImg2
-    background-image: url('img/SpaceImg2.jpg') 
-
-.panelImg3
-    background-image: url('img/SpaceImg3.jpg') 
-
-.panelImg4
-    background-image: url('img/SpaceImg4.jpg') 
-
-.panelImg5
-    background-image: url('img/SpaceImg5.jpg') 
-
-.panelImg6
-    background-image: url('img/SpaceImg6.jpg')                        
-
-
-.container
-    display: flex
-    width: 90vw
-    align-items: center
-    justify-content: center
-    
-
-.panel
-    background-size: cover
-    background-position: center
-    background-repeat: no-repeat
-    height: 80vh
-    border-radius:  80px
-    cursor: pointer
-    flex: 0.5
-    margin: 10px
+.loader
     position: relative
-    transition: flex 0.9s
-    &:active
-        flex: 5
-        h3
-            opacity: 1     
-    h3
-        font-size: 24px
+    height: 80px
+    width: 80px
+    &::before, &::after
+        content: ""
         position: absolute
-        bottom: 20px
-        left: 30px
-        margin: 0
-        opacity: 0
+        top: 0
+        left: 0
+        height: 0
+        border: 50px solid transparent
+        border-bottom-color: white
+        animation: rotateA 2s infinite linear
+
+.loader
+    &::before
+        transform: rotate(90deg)
+        animation: rotateB 2s linear infinite
+
+
+@keyframes rotateA
+    0%, 25%
+        transform: rotate(0deg)
+    50%, 75%
+        transform: rotate(90deg)
+    100%
+        transform: rotate(180deg)    
+
+@keyframes rotateB
+    0%, 25%
+        transform: rotate(180deg)
+    50%, 75%
+        transform: rotate(270deg)
+    100%
+        transform: rotate(360deg) 
+   
+                        
         
-                     
+        
+        
