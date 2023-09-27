@@ -1,31 +1,32 @@
 
 
 
-let insert = document.getElementById("insert");
+
+let boxes = document.querySelectorAll(".box");
+
+window.addEventListener("scroll", checkBoxes)
+
+checkBoxes();
 
 
-window.addEventListener("keydown",(e)=>{
-   // console.log(event);
-   // console.log(event.key);
-   // console.log(event.keyCode);
-   //  console.log(event.code);
 
-    insert.innerHTML = `
-    <div class="key">
-        ${e.key === " " ? "Space" : e.key}
-         <small>event.key</small>
-    </div>
-    
 
-    <div class="key">
-        ${e.keyCode}
-        <small>event.keyCode</small>
-    </div>
+function checkBoxes(){
+    //console.log(window.innerHeight * 0.8);
+    let triggerBottom = window.innerHeight * 0.8;
 
-    <div class="key">
-    ${e.code}
-        <small>event.code</small>
-    </div>
-    `
-});
+    boxes.forEach(box =>{
+        let boxTop = box.getBoundingClientRect().top;
+
+     console.log(box.getBoundingClientRect().top);
+
+        if(boxTop < triggerBottom){
+            box.classList.add("box_show")
+        } else {
+            box.classList.remove("box_show")
+        }
+    })
+}
+
+//console.log(box.getBoundingClientRect());
 
