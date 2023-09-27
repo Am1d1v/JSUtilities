@@ -1,32 +1,28 @@
 
 
+let textEl = document.getElementById("text");
+let speedEl = document.getElementById("speed");
+let text = "Hello! Have a nice day";
+let idx = 1;
+let speed = 300 / speedEl.value;
 
+writeText();
 
-let boxes = document.querySelectorAll(".box");
+function writeText(){
 
-window.addEventListener("scroll", checkBoxes)
+    textEl.innerHTML = text.slice(0, idx);
 
-checkBoxes();
+    idx++;
 
+    if(idx > text.length){
+        idx = 1;
+    }
 
-
-
-function checkBoxes(){
-    //console.log(window.innerHeight * 0.8);
-    let triggerBottom = window.innerHeight * 0.8;
-
-    boxes.forEach(box =>{
-        let boxTop = box.getBoundingClientRect().top;
-
-     console.log(box.getBoundingClientRect().top);
-
-        if(boxTop < triggerBottom){
-            box.classList.add("box_show")
-        } else {
-            box.classList.remove("box_show")
-        }
-    })
+    setTimeout(writeText, speed);
 }
 
-//console.log(box.getBoundingClientRect());
+speedEl.addEventListener("input", (e)=>{
+    speed = 300 / e.target.value
+});
 
+console.dir(Event);

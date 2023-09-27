@@ -12,24 +12,20 @@ body
     flex-direction: column
     align-items: center
     justify-content: center
-    background-color: #8c9297       
+    height: 100vh
+    overflow: hidden
+    background-color: #422b52
 
-.box
-    width: 300px
-    height: 200px
-    display: flex
-    justify-content: center
-    align-items: center
-    background-color: #212c68
-    margin-top: 30px
-    border-radius: 10px
-    transform: translateX(500%)
-    transition: transform 0.5s
-    h2
-        font-size: 40px
-    &_hide
-        display: none        
- 
+div
+    position: absolute
+    bottom: 30px
+    background-color: rgba(0, 0, 0, 0.1)
+    padding: 15px
+    font-size: 1.5rem
 
-.box_show
-    transform: translateX(0)
+input
+    width: 50px
+    padding: 5px
+    font-size: 1rem
+    background-color: #fff
+    border: none    
