@@ -1,28 +1,34 @@
 
 
-let textEl = document.getElementById("text");
-let speedEl = document.getElementById("speed");
-let text = "Hello! Have a nice day";
-let idx = 1;
-let speed = 300 / speedEl.value;
+let container = document.getElementById("container");
+let colors = ["#341ba3", "#251e44", "#765bee", "#ae00ff", "#541c6e", "#2b043d"];
+let SQUARES = 600;
 
-writeText();
+for(let i = 0; i < SQUARES; i++){
+    let square = document.createElement("div");
+    square.classList.add("square");
 
-function writeText(){
 
-    textEl.innerHTML = text.slice(0, idx);
+    square.addEventListener("mouseover", ()=> setColor(square));
 
-    idx++;
+    square.addEventListener("mouseout", ()=> removeColor(square));
 
-    if(idx > text.length){
-        idx = 1;
-    }
-
-    setTimeout(writeText, speed);
+    container.append(square);
 }
 
-speedEl.addEventListener("input", (e)=>{
-    speed = 300 / e.target.value
-});
+function setColor(element){
+    let color = getRandomColor()
+    console.log(color);
+    element.style.background = color;
+    element.style.boxShadow = `0 0 200px ${color}, 0 0 100px ${color}`
+}
 
-console.dir(Event);
+function removeColor(element){
+    element.style.background = "#313131";
+    element.style.boxShadow = "0 0 2px black";
+
+}
+
+function getRandomColor(){
+    return colors[Math.floor(Math.random() * colors.length)];
+}
